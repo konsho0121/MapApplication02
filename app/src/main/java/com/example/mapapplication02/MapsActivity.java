@@ -12,6 +12,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -46,6 +47,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(new LatLng(40.784415, 140.780523)).title("青森大学の今はなき池 "));
         mMap.addMarker(new MarkerOptions().position(new LatLng(40.834831, 140.725221)).title("高橋家 "));
         mMap.addMarker(new MarkerOptions().position(new LatLng(40.834018, 140.726017)).title("鈴木家 "));
+
+        //追加情報マーカー
+        MarkerOptions opt = new MarkerOptions();
+        opt.position(new LatLng(40.826837, 140.724390));
+        opt.title("グランメール篠田C(一戸宅)");
+        opt.snippet("最近行ったのはインフルで休んだ時に手紙を届けたときですね。");
+        opt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+        Marker m1 = mMap.addMarker(opt);
+        m1.showInfoWindow();
 
         //視点を移動+ズーム
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(40.784415, 140.780523), 10));
